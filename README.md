@@ -75,9 +75,9 @@ $$J_\theta \ddot{\theta} = d \cdot v$$
 $$J_\psi \ddot{\psi} = l(u\sin\theta + \epsilon v \cos\theta)\cos e$$
 
 Where:
-- `u = F₁ + F₂` — total thrust (lift input)
-- `v = F₁ − F₂` — differential thrust (torque input)
-- `ε = 0.2` — **input coupling coefficient** (the source of the nonlinearity)
+- `u = F₁ + F₂`  total thrust (lift input)
+- `v = F₁ − F₂`  differential thrust (torque input)
+- `ε = 0.2` **input coupling coefficient** (the source of the nonlinearity)
 
 ### Physical Parameters
 
