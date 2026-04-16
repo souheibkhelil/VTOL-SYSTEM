@@ -24,7 +24,7 @@
 
 ## 🎬 Demo Video
 
-> **📽️ [Watch the live demonstration →](https://your-demo-link-here.com)**
+> **📽️ [Watch the live demonstration →](VTOL_demo.mp4)**
 >
 > The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances — all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
 
@@ -248,12 +248,11 @@ Run [`LQRI.m`](LQRI.m) to reproduce the full design and export a fresh K matrix.
 
 | Component | Role | Interface |
 |-----------|------|-----------|
-| **Arduino Mega** | Embedded control node, sensor I/O | USB / UART |
+| **Arduino UNO** | Embedded control node, sensor I/O | USB / UART |
 | **ADXL345 Accelerometer** | Elevation (pitch) angle measurement | I²C (0x53) |
 | **L3G4200D Gyroscope** | Angular velocity measurement | I²C (0x68) |
 | **Potentiometer × 2** | Roll (θ) and Yaw (ψ) angle measurement | Analog A0, A1 |
 | **Brushless Motor × 2** | Thrust generation at M1 and M2 | ESC PWM (pins 9, 10) |
-| **ESC × 2** | Motor speed controller | PWM 1000–1700 μs |
 | **PC + LabVIEW** | Real-time control host and HMI | Serial @ 230400 baud |
 | **MATLAB** | Offline LQR design and gain export | CSV |
 
@@ -290,12 +289,12 @@ The closed-loop LQRI controller achieves:
 
 **IIA4 — Institut National des Sciences Appliquées et de Technologie (INSAT)**
 
-| Name | Role |
-|------|------|
-| **GRATI Elyes** | Control Design & MATLAB |
-| **NJEH Oussema** | LabVIEW Integration |
-| **SNOUN Ferid** | Embedded Programming (Arduino) |
-| **KHELIL Souheib** | Hardware & Mechanical Setup |
+| Name |
+|------|
+| **GRATI Elyes** | 
+| **NJEH Oussema** | 
+| **SNOUN Ferid** | 
+| **KHELIL Souheib** | 
 
 ---
 
