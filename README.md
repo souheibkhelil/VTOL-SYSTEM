@@ -175,32 +175,32 @@ The augmented system was verified to be **fully controllable** (rank of controll
 
 ##  Embedded Programming — Arduino
 
-The Arduino layer handles all **real-time sensor acquisition**, signal conditioning, and actuator driving — designed for deterministic 100 Hz execution.
+The Arduino layer handles all **real-time sensor acquisition**, signal conditioning, and actuator driving designed for deterministic 100 Hz execution.
 
 ### Key Implementation Details
 
-**Timing** — A `micros()`-based loop with a 10 ms period ensures consistent sampling without blocking delays:
+**Timing**  A `micros()`-based loop with a 10 ms period ensures consistent sampling without blocking delays:
 ```cpp
 if (currentMicros - lastMicros >= 10000) { /* 100 Hz control tick */ }
 ```
 
-**IMU Interface (I²C)** — Direct register-level communication with the ADXL345 accelerometer (0x53) and L3G4200D gyroscope (0x68) via inline I²C writes to minimize function call overhead on the hot path.
+**IMU Interface (I²C)**  Direct register-level communication with the ADXL345 accelerometer (0x53) and L3G4200D gyroscope (0x68) via inline I²C writes to minimize function call overhead on the hot path.
 
-**Sensor Fusion** — Elevation (pitch) is derived from accelerometer data using `atan2f()`. Roll and Yaw are read from two potentiometers via analog inputs and scaled to radians:
+**Sensor Fusion** Elevation (pitch) is derived from accelerometer data using `atan2f()`. Roll and Yaw are read from two potentiometers via analog inputs and scaled to radians:
 ```cpp
 float ADC_SCALE = 4.7123f / 1024.0f; // Maps 0–1023 → 0–3π/2 rad
 ```
 
-**Low-Pass Filtering** — Angular velocities (roll speed, yaw speed) are filtered with a first-order IIR filter (α = 0.15) with deadband suppression to reduce noise at rest:
+**Low-Pass Filtering** Angular velocities (roll speed, yaw speed) are filtered with a first-order IIR filter (α = 0.15) with deadband suppression to reduce noise at rest:
 ```cpp
 filteredRollSpeed = 0.15f * (dRoll * dt_inv) + 0.85f * filteredRollSpeed;
 ```
 
-**Auto-Calibration** — On startup, 100 samples are averaged to compute per-axis offsets for pitch, roll, yaw, and both gyro axes.
+**Auto-Calibration** On startup, 100 samples are averaged to compute per-axis offsets for pitch, roll, yaw, and both gyro axes.
 
-**ESC Control** — Two brushless motors are driven via PWM signals in the 1000–1700 μs range using the Arduino `Servo` library on pins 9 and 10.
+**ESC Control** Two brushless motors are driven via PWM signals in the 1000–1700 μs range using the Arduino `Servo` library on pins 9 and 10.
 
-**Serial Protocol** — Bidirectional 230400 baud UART:
+**Serial Protocol** Bidirectional 230400 baud UART:
 - **Outgoing** (Arduino → LabVIEW): `e,θ,ψ,ė,θ̇,ψ̇\n` at 100 Hz
 - **Incoming** (LabVIEW → Arduino): `ESC1_μs,ESC2_μs\n`
 
@@ -208,7 +208,7 @@ filteredRollSpeed = 0.15f * (dRoll * dt_inv) + 0.85f * filteredRollSpeed;
 
 ##  LabVIEW Real-Time Interface
 
-LabVIEW serves as the **real-time control host** — receiving the 6-state vector from Arduino, computing the control law, and dispatching motor commands within the same loop iteration.
+LabVIEW serves as the **real-time control host**  receiving the 6-state vector from Arduino, computing the control law, and dispatching motor commands within the same loop iteration.
 
 ### LabVIEW Functions
 
