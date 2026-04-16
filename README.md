@@ -1,7 +1,7 @@
 <div align="center">
 
 #  VTOL System
-### Vertical Take-Off and Landing — 3-DOF Helicopter Rig
+### Vertical Take-Off and Landing : 3-DOF Helicopter Rig
 
 
 
