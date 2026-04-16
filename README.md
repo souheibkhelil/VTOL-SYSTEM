@@ -3,10 +3,7 @@
 #  VTOL System
 ### Vertical Take-Off and Landing — 3-DOF Helicopter Rig
 
-[![Arduino](https://img.shields.io/badge/Embedded-Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.arduino.cc/)
-[![MATLAB](https://img.shields.io/badge/Control%20Design-MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)](https://www.mathworks.com/)
-[![LabVIEW](https://img.shields.io/badge/Interface-LabVIEW-FFDB00?style=for-the-badge&logo=labview&logoColor=black)](https://www.ni.com/en/shop/labview.html)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
 
 > A real-time, hardware-in-the-loop control system for a 3 Degree-of-Freedom VTOL rig, featuring a full state-feedback **LQR-Integral** controller designed in MATLAB, executed in LabVIEW, and implemented on embedded Arduino hardware.
 
