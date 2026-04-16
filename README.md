@@ -6,7 +6,7 @@
 
 
 > A real-time, hardware-in-the-loop control system for a 3 Degree-of-Freedom VTOL rig, featuring a full state-feedback **LQR-Integral** controller designed in MATLAB, executed in LabVIEW, and implemented on embedded Arduino hardware.
-
+![VTOL System Architecture](vtol.jpeg)
 </div>
 
 ---
