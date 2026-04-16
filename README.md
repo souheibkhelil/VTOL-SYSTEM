@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚁 VTOL Control System
+#  VTOL System
 ### Vertical Take-Off and Landing — 3-DOF Helicopter Rig
 
 [![Arduino](https://img.shields.io/badge/Embedded-Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://www.arduino.cc/)
@@ -24,7 +24,7 @@
 
 ## 🎬 Demo Video
 
-> **📽️ [Watch the live demonstration →](VTOL_demo.mp4)**
+> **📽️ [Watch the live demonstration →]([VTOL_demo.mp4](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view))**
 >
 > The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances — all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
 
