@@ -14,7 +14,7 @@
 
 ---
 
-## 📸 System Overview
+##  System Overview
 
 > *A 3-DOF helicopter rig mounted on a mechanical support, driven by two brushless motors and instrumented with an IMU and two potentiometers.*
 
@@ -22,15 +22,15 @@
 
 ---
 
-## 🎬 Demo Video
+##  Demo Video
 
-> **📽️ [Watch the live demonstration →](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view)**
+> ** [Watch the live demonstration →](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view)**
 >
 > The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Project Motivation](#-project-motivation)
 - [Physical Model & Dynamics](#-physical-model--dynamics)
@@ -45,7 +45,7 @@
 
 ---
 
-## 🎯 Project Motivation
+##  Project Motivation
 
 **Vertical Take-Off and Landing (VTOL)** aircraft represent one of the most demanding challenges in modern control engineering. Unlike conventional fixed-wing aircraft, VTOL platforms must simultaneously manage lift, attitude, and position without the luxury of aerodynamic surfaces relying entirely on thrust vectoring and active control.
 
@@ -60,7 +60,7 @@ This project implements a lab-scale VTOL rig with **3 Degrees of Freedom** (Elev
 
 ---
 
-## 📐 Physical Model & Dynamics
+##  Physical Model & Dynamics
 
 The rig transitions from the classical free-flying VTOL benchmark to a **3-DOF Helicopter Rig** model mechanically constrained on a pivot support, capturing the same complex coupled dynamics in a safe, lab-testable form.
 
@@ -94,7 +94,7 @@ Where:
 
 ---
 
-## 📊 State-Space Linearization
+##  State-Space Linearization
 
 The nonlinear system is linearized around the **hover equilibrium** (e = θ = ψ = 0, u = u₀ = mg) to obtain the standard LTI form `ẋ = Ax + Bτ`.
 
@@ -118,7 +118,7 @@ A (6×6):                              B (6×2):
 
 ---
 
-## 🎛️ Control Strategy : LQR with Integral Action
+##  Control Strategy : LQR with Integral Action
 
 ### Why LQR?
 
@@ -173,7 +173,7 @@ The augmented system was verified to be **fully controllable** (rank of controll
 
 ---
 
-## 💾 Embedded Programming — Arduino
+##  Embedded Programming — Arduino
 
 The Arduino layer handles all **real-time sensor acquisition**, signal conditioning, and actuator driving — designed for deterministic 100 Hz execution.
 
@@ -206,7 +206,7 @@ filteredRollSpeed = 0.15f * (dRoll * dt_inv) + 0.85f * filteredRollSpeed;
 
 ---
 
-## 🖥️ LabVIEW Real-Time Interface
+##  LabVIEW Real-Time Interface
 
 LabVIEW serves as the **real-time control host** — receiving the 6-state vector from Arduino, computing the control law, and dispatching motor commands within the same loop iteration.
 
@@ -220,7 +220,7 @@ LabVIEW serves as the **real-time control host** — receiving the 6-state vecto
 
 ---
 
-## 🔬 MATLAB Design Workflow
+##  MATLAB Design Workflow
 
 ```matlab
 % 1. Define physical parameters
@@ -244,7 +244,7 @@ Run [`LQRI.m`](LQRI.m) to reproduce the full design and export a fresh K matrix.
 
 ---
 
-## 🔧 Hardware Stack
+##  Hardware Stack
 
 | Component | Role | Interface |
 |-----------|------|-----------|
@@ -258,7 +258,7 @@ Run [`LQRI.m`](LQRI.m) to reproduce the full design and export a fresh K matrix.
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 VTOL-Control/
@@ -273,7 +273,7 @@ VTOL-Control/
 
 ---
 
-## 📈 Results
+##  Results
 
 The closed-loop LQRI controller achieves:
 
@@ -285,7 +285,7 @@ The closed-loop LQRI controller achieves:
 
 ---
 
-## 👥 Team
+##  Team
 
 **IIA4 — Institut National des Sciences Appliquées et de Technologie (INSAT)**
 
@@ -298,7 +298,7 @@ The closed-loop LQRI controller achieves:
 
 ---
 
-## 📜 License
+##  License
 
 This project is released under the [MIT License](LICENSE). Academic use and adaptation are welcome — please cite this repository if you build upon it.
 
