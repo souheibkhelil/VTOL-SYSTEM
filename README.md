@@ -26,7 +26,7 @@
 
 > **📽️ [Watch the live demonstration →](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view)**
 >
-> The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances — all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
+> The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
 
 ---
 
@@ -47,22 +47,22 @@
 
 ## 🎯 Project Motivation
 
-**Vertical Take-Off and Landing (VTOL)** aircraft represent one of the most demanding challenges in modern control engineering. Unlike conventional fixed-wing aircraft, VTOL platforms must simultaneously manage lift, attitude, and position without the luxury of aerodynamic surfaces — relying entirely on thrust vectoring and active control.
+**Vertical Take-Off and Landing (VTOL)** aircraft represent one of the most demanding challenges in modern control engineering. Unlike conventional fixed-wing aircraft, VTOL platforms must simultaneously manage lift, attitude, and position without the luxury of aerodynamic surfaces relying entirely on thrust vectoring and active control.
 
 This project implements a lab-scale VTOL rig with **3 Degrees of Freedom** (Elevation `e`, Roll `θ`, Yaw `ψ`) to study and validate advanced control strategies on a real physical platform. The system is intentionally designed around accessible, cost-efficient components to demonstrate that high-performance optimal control is achievable without industrial-grade equipment.
 
 **Key engineering challenges addressed:**
 
-- **Strong Input Coupling** — thrust intended for lift simultaneously induces lateral forces and yaw moments due to thruster geometry (ε ≠ 0)
-- **Underactuated Dynamics** — 3 DOF are controlled with only 2 inputs (F₁, F₂), demanding a carefully designed control law
-- **Nonlinear Equations of Motion** — trigonometric coupling between axes creates sensitivity to operating-point deviations and external disturbances
-- **Real-Time Embedded Execution** — the control loop must close at 100 Hz with deterministic timing across a heterogeneous hardware pipeline
+- **Strong Input Coupling** : thrust intended for lift simultaneously induces lateral forces and yaw moments due to thruster geometry (ε ≠ 0)
+- **Underactuated Dynamics** : 3 DOF are controlled with only 2 inputs (F₁, F₂), demanding a carefully designed control law
+- **Nonlinear Equations of Motion** : trigonometric coupling between axes creates sensitivity to operating-point deviations and external disturbances
+- **Real-Time Embedded Execution** : the control loop must close at 100 Hz with deterministic timing across a heterogeneous hardware pipeline
 
 ---
 
 ## 📐 Physical Model & Dynamics
 
-The rig transitions from the classical free-flying VTOL benchmark to a **3-DOF Helicopter Rig** model — mechanically constrained on a pivot support, capturing the same complex coupled dynamics in a safe, lab-testable form.
+The rig transitions from the classical free-flying VTOL benchmark to a **3-DOF Helicopter Rig** model mechanically constrained on a pivot support, capturing the same complex coupled dynamics in a safe, lab-testable form.
 
 ### Nonlinear Equations of Motion
 
@@ -104,7 +104,7 @@ $$x = \begin{bmatrix} e & \theta & \psi & \dot{e} & \dot{\theta} & \dot{\psi} \e
 
 ### System Matrices
 
-The A matrix captures the natural coupling between yaw and roll angle via the `lu₀/J_ψ` term — a direct consequence of the ε ≠ 0 strong input coupling:
+The A matrix captures the natural coupling between yaw and roll angle via the `lu₀/J_ψ` term, a direct consequence of the ε ≠ 0 strong input coupling:
 
 ```
 A (6×6):                              B (6×2):
@@ -118,7 +118,7 @@ A (6×6):                              B (6×2):
 
 ---
 
-## 🎛️ Control Strategy — LQR with Integral Action
+## 🎛️ Control Strategy : LQR with Integral Action
 
 ### Why LQR?
 
@@ -212,11 +212,11 @@ LabVIEW serves as the **real-time control host** — receiving the 6-state vecto
 
 ### LabVIEW Functions
 
-- **Serial Acquisition** — Parse the incoming comma-delimited state vector at 100 Hz
-- **State Augmentation** — Numerically integrate error on `e` and `ψ` to build `x_aug`
-- **Control Law** — Matrix multiplication: `τ = −K · x_aug` using the imported K matrix
-- **Input Mixing** — Convert to motor commands: `ESC₁ = u + v`, `ESC₂ = u − v`, then map to PWM microseconds
-- **Real-Time Monitoring** — Live plots of all 6 states, control inputs, and setpoints for operator oversight
+- **Serial Acquisition** : Parse the incoming comma-delimited state vector at 100 Hz
+- **State Augmentation** : Numerically integrate error on `e` and `ψ` to build `x_aug`
+- **Control Law** : Matrix multiplication: `τ = −K · x_aug` using the imported K matrix
+- **Input Mixing** : Convert to motor commands: `ESC₁ = u + v`, `ESC₂ = u − v`, then map to PWM microseconds
+- **Real-Time Monitoring** : Live plots of all 6 states, control inputs, and setpoints for operator oversight
 
 ---
 
@@ -280,7 +280,7 @@ The closed-loop LQRI controller achieves:
 - ✅ **Zero steady-state error** on elevation and yaw setpoints (guaranteed by integral action)
 - ✅ **Stable roll regulation** at θ = 0 despite strong input coupling (ε = 0.2)
 - ✅ **100 Hz real-time loop** with sub-millisecond Arduino cycle time (verified via `micros()` profiling)
-- ✅ **Disturbance rejection** — manual perturbations in roll recover within ~2 seconds
+- ✅ **Disturbance rejection**  manual perturbations in roll recover within ~2 seconds
 - ✅ **Full controllability** confirmed: rank(C_aug) = 8
 
 ---
