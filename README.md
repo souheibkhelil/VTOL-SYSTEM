@@ -1,3 +1,6 @@
+## System Overview
+This project focuses on Vertical Take-Off and Landing (VTOL) systems, integrating advanced control systems to manage the complexities of nonlinear dynamics in flight. The system is tailored for applications in both commercial and research environments, leveraging robust embedded programming techniques to ensure reliable operation.
+
 # Architecture
 
 ![VTOL Diagram](diagramvtol.png)
