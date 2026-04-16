@@ -24,7 +24,7 @@
 
 ## 🎬 Demo Video
 
-> **📽️ [Watch the live demonstration →]([VTOL_demo.mp4](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view))**
+> **📽️ [Watch the live demonstration →](https://drive.google.com/file/d/1X5AhMbgtWYZdPLM-NShv_fOlvziu0eXS/view)**
 >
 > The demo showcases the rig stabilizing from a perturbed initial condition, tracking elevation and yaw setpoints in real-time while rejecting roll disturbances — all driven by the closed-loop LQRI controller running across the Arduino–LabVIEW pipeline.
 
